@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Longdo Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script type="text/javascript" src="https://api.longdo.com/map/?key=[YOUR_KEY_API]"></script>
+    <script>
+        var map;
+        var markers;
+        function init() {
+            map = new longdo.Map({
+                placeholder: document.getElementById("map")
+            });
+            map.Ui.ContextMenu = null
+            map.Ui.DPad.visible(false);
+            map.Ui.Zoombar.visible(false);
+            map.Ui.Geolocation.visible(false);
+            map.Ui.Toolbar.visible(false);
+            map.Ui.LayerSelector.visible(false);
+            map.Ui.Fullscreen.visible(false);
+            map.Ui.Scale.visible(false);
+            map.Event.bind('overlayClick', function (it) {
+                if (it instanceof longdo.Marker) {
+                   window.flutter_inappwebview.callHandler("overlay", it.id);
+                }
+            });
+            window.addEventListener("flutterInAppWebViewPlatformReady", function(event) {
+                window.flutter_inappwebview.callHandler("init");
+           });
+        }
+        function marker() {
+            var list = map.Overlays.list();
+            var id = [];
+            list.forEach(function (it) {
+                if (it instanceof longdo.Marker) {
+                    id.push(it.id);
+                }
+            });
+            return id;
+        }
+        function remove(id) {
+            var markers = map.Overlays.list();
+            markers.forEach(function (it) {
+                if(id.includes(it.id)) {
+                    map.Overlays.remove(it);
+                }
+            });
+        }
+    </script>
+    <style type="text/css">
+        html {
+            height: 100%;
+        }
+
+        body {
+            margin: 0px;
+            height: 100%;
+        }
+
+        #map {
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body onload="init();">
+<div id="map"></div>
+</body>
+
+</html>

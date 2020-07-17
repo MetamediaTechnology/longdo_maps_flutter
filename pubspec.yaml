@@ -1,0 +1,19 @@
+name: longdo_maps_flutter
+description: "Flutter plugin for integrating Longdo Maps in iOS and Android applications."
+version: 1.0.0
+author: "Metamedia Technology Co., Ltd."
+homepage: "https://map.longdo.com/products"
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+  flutter: ">=1.10.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_inappwebview: ^4.0.0+4
+  location: ^3.0.2
+
+flutter:
+  assets:
+    - index.html
