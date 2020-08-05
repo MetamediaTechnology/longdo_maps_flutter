@@ -1,4 +1,6 @@
 # longdo_maps_flutter
+This is an Flutter plug-in for the [Longdo Map][https://map.longdo.com] [API service][https://map.longdo.com/products].
+
 ## Getting Started 
 In your flutter project add the dependency:
 ```
