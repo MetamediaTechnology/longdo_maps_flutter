@@ -42,6 +42,7 @@
     <key>io.flutter.embedded_views_preview</key>
 	<true/>
 	<key>NSLocationAlwaysUsageDescription</key>
-    <key>NSLocationWhenInUseUsageDescription</key>
-</dict>
+	<string>I need it </string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Because</string></dict>
 </plist>
