@@ -3,3 +3,6 @@
 - Zoom
 - Scale bar
 - Marker
+
+## 1.0.1
+- Fix location
